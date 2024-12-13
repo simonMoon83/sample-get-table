@@ -227,7 +227,7 @@ def create_table_specification(connection_string, owner):
 
 if __name__ == "__main__":
     # 오라클 연결 문자열 예시
-    connection_string = "oracle+cx_oracle://username:password@hostname:port/?service_name=service_name"
+    connection_string = "oracle+oracledb://username:password@hostname:port/?service_name=service_name"
     owner = "SCHEMA_NAME"  # 스키마 이름을 대문자로 지정
     
     try:
