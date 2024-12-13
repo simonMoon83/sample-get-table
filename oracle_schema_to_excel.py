@@ -226,8 +226,8 @@ def create_table_specification(connection_string, owner):
     print(f"오라클 테이블 명세서가 생성되었습니다: {output_file}")
 
 if __name__ == "__main__":
-    # 오라클 연결 문자열 예시
-    connection_string = "oracle+oracledb://username:password@hostname:port/?service_name=service_name"
+    # 오라클 연결 문자열 예시 (JDBC Thin style)
+    connection_string = "oracle+oracledb://username:password@hostname:1521/service_name"
     owner = "SCHEMA_NAME"  # 스키마 이름을 대문자로 지정
     
     try:

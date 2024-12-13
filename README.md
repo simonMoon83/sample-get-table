@@ -27,6 +27,14 @@
 pip install -r requirements.txt
 ```
 
+2. Oracle 데이터베이스 사용을 위한 추가 설치 (Oracle 사용 시에만 필요):
+   1. [Oracle Instant Client](https://www.oracle.com/database/technologies/instant-client/downloads.html) 다운로드
+      - Windows x64 Basic Package 또는 Basic Light Package 다운로드
+   2. 다운로드 받은 zip 파일을 원하는 경로에 압축 해제 (예: C:\oracle\instantclient_21_13)
+   3. 압축 해제한 경로를 시스템 환경 변수 PATH에 추가
+   4. 시스템 환경 변수에 TNS_ADMIN 추가 (필요한 경우)
+      - 값: Oracle Instant Client 설치 경로 (예: C:\oracle\instantclient_21_13)
+
 ## 사용 방법
 
 ### 일반 데이터베이스
@@ -49,7 +57,7 @@ python oracle_schema_to_excel.py
 - PostgreSQL: "postgresql://username:password@localhost:5432/database_name"
 - SQLite: "sqlite:///database.db"
 - MSSQL: "mssql+pyodbc://username:password@server_name/database_name?driver=SQL+Server"
-- Oracle: Oracle 전용 스크립트(`oracle_schema_to_excel.py`) 사용
+- Oracle: "oracle+oracledb://username:password@hostname:1521/service_name"
 
 ## 출력 결과
 
@@ -67,5 +75,5 @@ python oracle_schema_to_excel.py
 
 ## 주의사항
 
-- Oracle 데이터베이스 사용 시 cx_Oracle 또는 python-oracledb 패키지가 필요합니다.
-- Oracle Client가 시스템에 설치되어 있어야 합니다.
+- Oracle 데이터베이스 사용 시 Oracle Instant Client가 시스템에 설치되어 있어야 합니다.
+- Oracle 연결 문자열의 hostname은 tnsnames.ora에 정의된 서비스 이름을 사용할 수도 있습니다.
