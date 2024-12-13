@@ -5,6 +5,10 @@ import pandas as pd
 from sqlalchemy import create_engine, text
 from db_schema_utils import apply_sheet_style, get_output_file_name
 from openpyxl.styles import Font, Alignment
+import oracledb
+
+# Thin 모드 설정
+oracledb.init_oracle_client(lib_dir=None, config_dir=None)
 
 def get_column_info(connection, table_name, owner):
     """Get column information for a specific table using direct SQL queries"""
@@ -227,10 +231,11 @@ def create_table_specification(connection_string, owner):
 
 if __name__ == "__main__":
     # 오라클 연결 문자열 예시 (JDBC Thin style)
-    connection_string = "oracle+oracledb://username:password@hostname:1521/service_name"
+    connection_string = "oracle+oracledb://username:password@hostname:1521/service_name?thick_mode=False"
     owner = "SCHEMA_NAME"  # 스키마 이름을 대문자로 지정
     
     try:
         create_table_specification(connection_string, owner)
     except Exception as e:
         print(f"Error: {str(e)}")
+        print("Help: https://python-oracledb.readthedocs.io/en/latest/user_guide/troubleshooting.html")
