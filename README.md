@@ -45,7 +45,15 @@ python db_schema_to_excel.py
 ```
 
 ### Oracle 데이터베이스
-1. `oracle_schema_to_excel.py` 파일을 열어 데이터베이스 연결 정보를 수정합니다.
+1. `oracle_schema_to_excel.py` 파일을 열어 다음 연결 정보를 수정합니다:
+   ```python
+   username = "your_username"
+   password = "your_password"
+   hostname = "your_hostname"
+   port = 1521  # 기본 포트
+   service_name = "your_service_name"
+   owner = "SCHEMA_NAME"  # 스키마 이름을 대문자로 지정
+   ```
 2. 프로그램 실행:
 ```bash
 python oracle_schema_to_excel.py
@@ -57,7 +65,6 @@ python oracle_schema_to_excel.py
 - PostgreSQL: "postgresql://username:password@localhost:5432/database_name"
 - SQLite: "sqlite:///database.db"
 - MSSQL: "mssql+pyodbc://username:password@server_name/database_name?driver=SQL+Server"
-- Oracle: "oracle+oracledb://username:password@hostname:1521/?service_name=service_name&mode=thin"
 
 ## 출력 결과
 
@@ -76,5 +83,5 @@ python oracle_schema_to_excel.py
 ## 주의사항
 
 - Oracle Thin 모드를 사용하므로 Oracle Instant Client 설치가 필요하지 않습니다.
-- Oracle 연결 문자열의 hostname은 호스트 이름 또는 IP 주소를 입력하세요.
+- Oracle 연결 시 hostname은 호스트 이름 또는 IP 주소를 입력하세요.
 - service_name은 데이터베이스 서비스 이름을 입력하세요.
