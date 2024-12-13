@@ -57,7 +57,7 @@ python oracle_schema_to_excel.py
 - PostgreSQL: "postgresql://username:password@localhost:5432/database_name"
 - SQLite: "sqlite:///database.db"
 - MSSQL: "mssql+pyodbc://username:password@server_name/database_name?driver=SQL+Server"
-- Oracle: "oracle+oracledb://username:password@hostname:1521/service_name?thick_mode=False"
+- Oracle: "oracle+oracledb://username:password@hostname:1521/?service_name=service_name&mode=thin"
 
 ## 출력 결과
 
@@ -77,3 +77,4 @@ python oracle_schema_to_excel.py
 
 - Oracle Thin 모드를 사용하므로 Oracle Instant Client 설치가 필요하지 않습니다.
 - Oracle 연결 문자열의 hostname은 호스트 이름 또는 IP 주소를 입력하세요.
+- service_name은 데이터베이스 서비스 이름을 입력하세요.
